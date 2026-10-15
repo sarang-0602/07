@@ -1,20 +1,20 @@
 #include <stdio.h>
-void f(void);
-
-int i;              
+void sub(void);
 
 int main(void)
 {
-    for (i = 0; i < 5; i++)
-    {
-        f();
-    }
+    int i;
+    for (i = 0; i < 3; i++)
+        sub();
     return 0;
 }
 
-void f(void)
+void sub(void)
 {
-    int i; // 50개 출력하기 위해서는 지역변수 따로 또 설정
-    for (i = 0; i < 10; i++)
-        printf("#");
+    int auto_count = 0; // 매번 대입
+    static int static_count = 0; //초기화 시키는중(매번 생성은 아니고, 처음에만 실행)
+    auto_count++;
+    static_count++;
+    printf("auto_count=%d\n", auto_count);
+    printf("static_count=%d\n", static_count);
 }
