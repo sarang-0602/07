@@ -1,15 +1,20 @@
 #include <stdio.h>
+void f(void);
 
-int counter; //전역변수
+int i;              
 
-void set_counter()
-{
-    counter = 20;
-}
 int main(void)
 {
-    printf("counter=%d\n", counter);
-    set_counter();
-    printf("counter=%d\n", counter);
+    for (i = 0; i < 5; i++)
+    {
+        f();
+    }
     return 0;
+}
+
+void f(void)
+{
+    int i; // 50개 출력하기 위해서는 지역변수 따로 또 설정
+    for (i = 0; i < 10; i++)
+        printf("#");
 }
